@@ -1,17 +1,3 @@
-<!-- <!doctype html>
-	<head>
-        <title>JavaScript Speech to Text</title>
-        <link rel="stylesheet" type = "text/css" href = "maldmeter.css"/>
-		<script src = "maldmeter.js"></script>
-	</head>
-	<body>
-		<h2>JavaScript Speech to Text</h2>
-        <p>Click on the below button and speak something...</p>
-        <p><button type="button" onclick="runSpeechRecognition()">Speech to Text</button> &nbsp; <span id="action"></span></p>
-        <div id="output" class="hide"></div>
-	</body>
-</html> -->
-
 <!doctype html>
 	<head>
 		<style>
@@ -59,15 +45,7 @@
                 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
                 var recognition = new SpeechRecognition();
             
-                // This runs when the speech recognition service starts
-                recognition.onstart = function() {
-                    action.innerHTML = "<small>listening, please speak...</small>";
-                };
-                
-                recognition.onspeechend = function() {
-                    action.innerHTML = "<small>stopped listening, hope you are done...</small>";
-                    recognition.stop();
-                }
+                recognition.continuous = true;
               
                 // This runs when the speech recognition service returns result
                 recognition.onresult = function(event) {
