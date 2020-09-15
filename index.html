@@ -13,7 +13,7 @@
 			    cursor:pointer;
 			    border-radius: 5px;
 			}
-			#output {
+			.output {
 			    background-color:#F9F9F9;
 			    padding:10px;
 			    width: 100%;
@@ -33,12 +33,13 @@
 		<h2>JavaScript Speech to Text</h2>
         <p>Click on the below button and speak something...</p>
         <p><button type="button" onclick="runSpeechRecognition()">Speech to Text</button> &nbsp; <span id="action"></span></p>
-        <div id="output" class="hide"></div>
+        <div class="output"></div>
 		<script>
 			/* JS comes here */
 		    function runSpeechRecognition() {
 		        // get output div reference
-		        var output = document.createElement("div");
+				var output = document.createElement("div");
+				output.addClass("output");
 		        // get action element reference
 		        var action = document.getElementById("action");
                 // new speech recognition object
