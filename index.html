@@ -46,20 +46,26 @@
                 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
                 var recognition = new SpeechRecognition();
             
-				recognition.continuous = true;
-				
-				while(true) {
-					// This runs when the speech recognition service returns result
-					recognition.onresult = function(event) {
-						var transcript = event.results[0][0].transcript;
-						var confidence = event.results[0][0].confidence;
-						output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
-						output.classList.remove("hide");
-					};
-				
-					// start recognition
-					recognition.start();
+				// This runs when the speech recognition service starts
+				recognition.onstart = function() {
+					console.log("We are listening. Try speaking into the microphone.");
+				};
+
+				recognition.onspeechend = function() {
+					// when user is done speaking
+					recognition.stop();
 				}
+				
+				// This runs when the speech recognition service returns result
+				recognition.onresult = function(event) {
+					var transcript = event.results[0][0].transcript;
+					var confidence = event.results[0][0].confidence;
+					output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
+					runSpeechRecognition();
+				};
+			
+				// start recognition
+				recognition.start();
 	        }
 		</script>
 	</body>
