@@ -4,6 +4,5 @@ var profanityList = ["go fuck yourself", "die", "please end yourself", "you suck
 function displayProfanity(){
     document.getElementById("profanityDisplay").innerHTML(Math.floor(Math.random() * profanityList.length));
 }
-function(){
-    document.onload(displayProfanity);
-}
+
+window.onload = displayProfanity;
