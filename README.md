@@ -6,19 +6,19 @@
 ### Will contain:
 
 - Resume
-  - Relevant Skills
-  - Professional Experience
-  - Project Experience
-  - Class github pages
+	- Relevant Skills
+	- Professional Experience
+	- Project Experience
+	- Class github pages
 
 - A place to create blog posts
 - An archive of blog posts
 - Ability to format Markdown (research)
 
-### Written in
+### Written in:
 
 - HTML/CSS
 - C#
-- Maybe react for front end idk
+- React (research)
 - Azure cloud storage (research)
 - AWS (research)
