@@ -12,8 +12,16 @@
 	- Class github pages
 
 - A place to create blog posts
+	- Date and time
+	- Title
+	- Body
 - An archive of blog posts
+	- Display
+		- Date, Title
+		- Body
 - Ability to format Markdown (research)
+	- Ideally, would like to be able to have markdown in the posts
+	- Lists, bold, italic, underline, size, etc
 
 ### Written in:
 
