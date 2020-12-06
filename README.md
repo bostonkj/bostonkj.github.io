@@ -17,8 +17,9 @@
 	- Body
 - An archive of blog posts
 	- Display
-		- Date, Title
+		- Title
 		- Body
+		- Date
 - Ability to format Markdown (research)
 	- Ideally, would like to be able to have markdown in the posts
 	- Lists, bold, italic, underline, size, etc
