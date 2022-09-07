@@ -31,3 +31,11 @@
 - React (research)
 - Azure cloud storage (research)
 - AWS (research)
+
+=======================================================================================================================================
+
+### Current new additions:
+
+- Google Tag Manager
+- Google Analytics 4
+- Simple Page, just meant to set it up and see the information being passed along
