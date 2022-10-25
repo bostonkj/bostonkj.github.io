@@ -1,6 +1,6 @@
 <head>
   <title>Harry Pottah</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -52,13 +52,7 @@
   <div>
     <img src="hpatps.jpg" />
     <p>Price: $24.99</p>
-    <button
-      type="button"
-      onclick="datalayer.push({
-            'price' : 24.99});"
-    >
-      Buy Now Plz
-    </button>
+    <button type="button" onclick="purchase()">Buy Now Plz</button>
   </div>
   <div>
     <p>Plot:</p>
@@ -137,3 +131,11 @@
     >
   </div>
 </body>
+<script>
+  function purchase() {
+    dataLayer.push({
+      bookPrice: 24.99,
+      bookTitle: "Harry Potter and the Sorceror's Stone",
+    })((window.location.href = "purchase.html"));
+  }
+</script>
