@@ -1,5 +1,5 @@
 <head>
-  <title>Alex Cross is underrated</title>
+  <title>{{book title}}</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
   <script>
@@ -50,27 +50,22 @@
   </script>
 
   <div>
-    <img src="cross.jpg" />
-    <p>Price: $13.99</p>
+    <img src="temp.jpg" />
+    <p>Price:</p>
     <button type="button" onclick="purchase()">Buy Now Plz</button>
   </div>
   <div>
     <p>Plot:</p>
     <br />
-    <p>
-      Alex Cross's former partner, John Sampson, asks him to investigate the
-      case of a serial rapist in Georgetown with similarities to a case they
-      worked on together before. The case ends up having a connection to the
-      death of Cross's wife, Maria.[1]
-    </p>
-    <a href="https://en.wikipedia.org/wiki/Cross_(novel)">source: wikipedia</a>
+    <p>{{book plot}}</p>
+    <a href="link/to/plot/wikipedia/page">source: wikipedia</a>
   </div>
 </body>
 <script>
   function purchase() {
     dataLayer.push({
-      bookPrice: 13.99,
-      bookTitle: "Cross",
+      bookPrice: 0,
+      bookTitle: "{{title}}",
     })((window.location.href = "purchase.html"));
   }
 </script>
