@@ -48,11 +48,6 @@
     gtag("js", new Date());
 
     gtag("config", "G-W88LHLNFRD");
-    window.datalayer = {
-      bookTitle: "Gone With the Wind",
-      bookAuthor: "Margaret Mitchell",
-      bookPrice: 37.99,
-    };
   </script>
 
   <img src="/img/gwtw.jpg" />
@@ -60,7 +55,11 @@
   <button
     type="button"
     id="buyNow"
-    onclick="window.location.href = 'purchase.html'"
+    onclick="dataLayer.push({
+      'bookTitle': 'Gone With the Wind',
+      'bookAuthor': 'Margaret Mitchell',
+      'bookPrice': 37.99,
+    }); window.location.href = 'purchase.html'"
   >
     Buy Now Plz
   </button>
