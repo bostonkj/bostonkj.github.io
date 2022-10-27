@@ -42,6 +42,11 @@
   ></script>
   <script>
     window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      bookAuthor: "Margaret Mitchell",
+      bookPrice: 37.99,
+      bookTitle: "Gone With the Wind",
+    });
     function gtag() {
       dataLayer.push(arguments);
     }
@@ -55,11 +60,7 @@
   <button
     type="button"
     id="buyNow"
-    onclick="dataLayer.push({
-      'bookTitle': 'Gone With the Wind',
-      'bookAuthor': 'Margaret Mitchell',
-      'bookPrice': 37.99,
-    }); window.location.href = 'purchase.html'"
+    onclick="window.location.href = 'purchase.html'"
   >
     Buy Now Plz
   </button>
