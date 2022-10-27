@@ -53,7 +53,13 @@
   <div>
     <img src="/img/cross.jpg" />
     <p>Price: $13.99</p>
-    <button type="button" id="buyNow" onclick="purchase()">Buy Now Plz</button>
+    <button
+      type="button"
+      id="buyNow"
+      onclick="window.location.href = 'purchase.html'"
+    >
+      Buy Now Plz
+    </button>
   </div>
   <div>
     <p>Plot:</p>
@@ -67,11 +73,3 @@
     <a href="https://en.wikipedia.org/wiki/Cross_(novel)">source: wikipedia</a>
   </div>
 </body>
-<script>
-  function purchase() {
-    dataLayer.push({
-      bookPrice: 13.99,
-      bookTitle: "Cross",
-    })((window.location.href = "purchase.html"));
-  }
-</script>

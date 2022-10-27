@@ -42,6 +42,11 @@
   ></script>
   <script>
     window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      bookAuthor: "icky Rowling",
+      bookPrice: 2.99,
+      bookTitle: "Harry Potter and The Sorceror's Stone",
+    });
     function gtag() {
       dataLayer.push(arguments);
     }
@@ -53,7 +58,13 @@
   <div>
     <img src="/img/hpatps.jpg" />
     <p>Price: $2.99</p>
-    <button type="button" id="buyNow" onclick="purchase()">Buy Now Plz</button>
+    <button
+      type="button"
+      id="buyNow"
+      onclick="window.location.href = 'purchase.html'"
+    >
+      Buy Now Plz
+    </button>
   </div>
   <div>
     <p>Plot:</p>
@@ -132,11 +143,3 @@
     >
   </div>
 </body>
-<script>
-  function purchase() {
-    dataLayer.push({
-      bookPrice: 2.99,
-      bookTitle: "Harry Potter and the Sorceror's Stone",
-    })((window.location.href = "purchase.html"));
-  }
-</script>
