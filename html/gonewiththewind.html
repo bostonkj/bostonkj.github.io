@@ -55,12 +55,11 @@
   <button
     type="button"
     id="buyNow"
-    onclick="function click(){
-      dataLayer.push({
-        'bookPrice': '37.99',
-        'bookTitle': 'Gone With the Wind',
-      })((window.location.href = 'purchase.html'));
-    }"
+    onclick="dataLayer.push({
+            'bookPrice': '37.99',
+            'bookTitle': 'Gone With the Wind',
+            })"
+    href="purchase.html"
   >
     Buy Now Plz
   </button>
