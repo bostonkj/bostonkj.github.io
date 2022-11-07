@@ -46,12 +46,13 @@
 }
 
 .shop-item {
-    margin: 30px;
+    width: 30%;
+    padding-right: 3%;
 }
 
 .shop-item-title {
     display: block;
-    width: 100%;
+    width: 80%;
     text-align: center;
     font-weight: bold;
     font-size: 1.5em;
@@ -60,7 +61,7 @@
 }
 
 .shop-item-image {
-    height: 250px;
+    height: 100px;
 }
 
 .shop-item-details {
