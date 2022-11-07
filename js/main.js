@@ -31,19 +31,6 @@ function ready() {
 function purchaseClicked() {
     alert("Thank you for your purchase");
     var cartItems = document.getElementsByClassName("cart-items")[0];
-
-    // pushing to datalayer the purchase information
-    window.datalayer = window.datalayer || [];
-
-    //loop through the items in the cart, grabbing: title, price, quantity
-    for (var i = 0; i < cartItems.length; i++) {
-        window.datalayer.push({
-            title: cartItems[i].getElementsByClassName("cart-item"),
-            quantity: cartItems[i].getElementsByClassName("cart-quantity"),
-            price: cartItems[i].getElementsByClassName("cart-price"),
-        });
-    }
-
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild);
     }
@@ -71,6 +58,11 @@ function addToCartClicked(event) {
     var price = shopItem.getElementsByClassName("shop-item-price")[0].innerText;
     var imageSrc = shopItem.getElementsByClassName("shop-item-image")[0].src;
     addItemToCart(title, price, imageSrc);
+
+    // pushing to datalayer the purchase information
+    window.datalayer = window.datalayer || [];
+    window.datalayer.push({ bookTitle: title, bookPrice: price });
+
     updateCartTotal();
 }
 
