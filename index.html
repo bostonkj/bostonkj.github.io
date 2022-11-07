@@ -1,104 +1,171 @@
 <!DOCTYPE html>
-    <head>
-        <title>{{book title}}</title>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="/css/style.css" />
-        <script src="/js/main.js" async></script>
+<head>
+    <title>{{book title}}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/main.js" async></script>
 
-        <script>
-            window.dataLayer = window.dataLayer || [];
-        </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    </script>
 
-        <!-- Google Tag Manager -->
-        <script>
-            (function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-                var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s),
-                    dl = l != "dataLayer" ? "&l=" + l : "";
-                j.async = true;
-                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, "script", "dataLayer", "GTM-N32V3TX");
-        </script>
-        <!-- End Google Tag Manager -->
-    </head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-N32V3TX");
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
 
-    <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript
-            ><iframe
-                src="https://www.googletagmanager.com/ns.html?id=GTM-N32V3TX"
-                height="0"
-                width="0"
-                style="display: none; visibility: hidden"
-            ></iframe
-        ></noscript>
-        <!-- End Google Tag Manager (noscript) -->
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+        ><iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-N32V3TX"
+            height="0"
+            width="0"
+            style="display: none; visibility: hidden"
+        ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-        <!-- Google tag (gtag.js) -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-W88LHLNFRD"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
+    <!-- Google tag (gtag.js) -->
+    <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-W88LHLNFRD"
+    ></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
 
-            gtag("config", "G-W88LHLNFRD");
-        </script>
-        <!-- End of Body Scripts-->
+        gtag("config", "G-W88LHLNFRD");
+    </script>
+    <!-- End of Body Scripts-->
 
-        <!--Books Section-->
-        <section class="container content-section">
-            <h2 class="section-header">BOOKS</h2>
-            <div class="shop-items">
-                <div class="shop-item">
-                    <span class="shop-item-title">Cross - James Patterson</span>
-                    <img class="shop-item-image" src="/img/cross.jpg">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">$24.99</span>
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <span class="shop-item-title">Harry Potter - JK Rowling</span>
-                    <img class="shop-item-image" src="/img/hpatps.jpg">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">$4.25</span>
-                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <span class="shop-item-title">Gone with the wind - Margaret Mitchell</span>
-                    <img class="shop-item-image" src="/img/gwtw.jpg">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">$39.99</span>
-                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                    </div>
+    <!--Books Section-->
+    <section class="container content-section">
+        <!--Book Series One-->
+        <h2 class="section-header">BOOKS</h2>
+        <div class="shop-items">
+            <div class="shop-item">
+                <span class="shop-item-title">Cross - James Patterson</span>
+                <img class="shop-item-image" src="/img/cross.jpg" />
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$24.99</span>
+                    <button
+                        class="btn btn-primary shop-item-button"
+                        type="button"
+                        onclick="window.dataLayer.push({'bookTitle':'Cross - James Patterson','bookPrice':24.99})"
+                    >
+                        ADD TO CART
+                    </button>
                 </div>
             </div>
-        </section>
+            <div class="shop-item">
+                <span class="shop-item-title">Harry Potter - JK Rowling</span>
+                <img class="shop-item-image" src="/img/hpatps.jpg" />
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$4.25</span>
+                    <button
+                        class="btn btn-primary shop-item-button"
+                        type="button"
+                        onclick="window.dataLayer.push({'bookTitle':'Harry Potter - JK Rowling','bookPrice':4.25})"
+                    >
+                        ADD TO CART
+                    </button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title"
+                    >Gone with the wind - Margaret Mitchell</span
+                >
+                <img class="shop-item-image" src="/img/gwtw.jpg" />
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$39.99</span>
+                    <button
+                        class="btn btn-primary shop-item-button"
+                        type="button"
+                        onclick="window.dataLayer.push({'bookTitle':'Gone with the wind - Margaret Mitchell','bookPrice':39.99})"
+                    >
+                        ADD TO CART
+                    </button>
+                </div>
+            </div>
 
-        <!--Cart section-->
-        <section class="container content-section">
-            <h2 class="section-header">CART</h2>
-            <div class="cart-row">
-                <span class="cart-item cart-header cart-column">ITEM</span>
-                <span class="cart-price cart-header cart-column">PRICE</span>
-                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            <!--Book Series Two-->
+            <div class="shop-item">
+                <span class="shop-item-title">Daniel X - James Patterson</span>
+                <img class="shop-item-image" src="/img/danielx.jpg" />
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$13.99</span>
+                    <button
+                        class="btn btn-primary shop-item-button"
+                        type="button"
+                        onclick="window.dataLayer.push({'bookTitle':'Daniel X - James Patterson','bookPrice':13.99})"
+                    >
+                        ADD TO CART
+                    </button>
+                </div>
             </div>
-            <div class="cart-items">
+            <div class="shop-item">
+                <span class="shop-item-title">Harry Potter 7 - JK Rowling</span>
+                <img class="shop-item-image" src="/img/deathlyhallows.jpg" />
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$12.99</span>
+                    <button
+                        class="btn btn-primary shop-item-button"
+                        type="button"
+                        onclick="window.dataLayer.push({'bookTitle':'Harry Potter 7 - JK Rowling','bookPrice':12.99})"
+                    >
+                        ADD TO CART
+                    </button>
+                </div>
             </div>
-            <div class="cart-total">
-                <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">$0</span>
+            <div class="shop-item">
+                <span class="shop-item-title"
+                    >And Then There Were None - Agatha Christie</span
+                >
+                <img class="shop-item-image" src="/img/atwn.jpg" />
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$18.99</span>
+                    <button
+                        class="btn btn-primary shop-item-button"
+                        type="button"
+                        onclick="window.dataLayer.push({'bookTitle':'And Then There Were None - Agatha Christie','bookPrice':18.99})"
+                    >
+                        ADD TO CART
+                    </button>
+                </div>
             </div>
-            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
-        </section>
-    </body>
-</html>
+        </div>
+    </section>
+
+    <!--Cart section-->
+    <section class="container content-section">
+        <h2 class="section-header">CART</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">ITEM</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$0</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button">
+            PURCHASE
+        </button>
+    </section>
+</body>

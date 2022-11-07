@@ -57,12 +57,12 @@ function addToCartClicked(event) {
     var title = shopItem.getElementsByClassName("shop-item-title")[0].innerText;
     var price = shopItem.getElementsByClassName("shop-item-price")[0].innerText;
     var imageSrc = shopItem.getElementsByClassName("shop-item-image")[0].src;
-    addItemToCart(title, price, imageSrc);
 
     // pushing to datalayer the purchase information
     window.datalayer = window.datalayer || [];
     window.datalayer.push({ bookTitle: title, bookPrice: price });
 
+    addItemToCart(title, price, imageSrc);
     updateCartTotal();
 }
 
