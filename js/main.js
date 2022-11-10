@@ -51,6 +51,7 @@ function quantityChanged(event) {
     updateCartTotal();
 }
 
+// Refactor to be on index.html - dlv should populate correctly
 function addToCartClicked(event) {
     var button = event.target;
     var shopItem = button.parentElement.parentElement;
@@ -59,8 +60,13 @@ function addToCartClicked(event) {
     var imageSrc = shopItem.getElementsByClassName("shop-item-image")[0].src;
 
     // pushing to datalayer the purchase information
+    // pushing to the datalayer outside the HTML doesn't work super well
     window.datalayer = window.datalayer || [];
-    window.datalayer[0] = { bookTitle: title, bookPrice: price };
+    window.datalayer.push = {
+        bookTitle: title,
+        bookPrice: price,
+        event: "add_to_cart",
+    };
 
     addItemToCart(title, price, imageSrc);
     updateCartTotal();

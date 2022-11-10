@@ -58,21 +58,34 @@
         <!--Book Series One-->
         <h2 class="section-header">BOOKS</h2>
         <div class="shop-items">
+            <script>
+                // array of book objects
+                var books = [];
+                books.push([24.99, "Cross - James Patterson"]);
+                books.push([
+                    4.25,
+                    "Harry Potter and the Sorceror's Stone - JK Rowling",
+                ]);
+                books.push([39.99, "Gone With The Wind - Margaret Mitchell"]);
+                books.push([13.99, "Daniel X - James Patterson"]);
+                books.push([
+                    12.99,
+                    "Harry Potter and the Deathly Hallows - JK Rowling",
+                ]);
+                books.push([
+                    18.99,
+                    "And Then There Were None - Agatha Christie",
+                ]);
+            </script>
             <div class="shop-item">
                 <span class="shop-item-title">Cross - James Patterson</span>
                 <img class="shop-item-image" src="/img/cross.jpg" />
                 <div class="shop-item-details">
                     <span class="shop-item-price">$24.99</span>
-                    <!-- <button
-                        class="btn btn-primary shop-item-button"
-                        type="button"
-                        onclick="window.dataLayer.push({'bookTitle':'Cross - James Patterson','bookPrice':24.99})"
-                    >
-                        ADD TO CART
-                    </button> -->
                     <button
                         class="btn btn-primary shop-item-button"
                         type="button"
+                        onclick="window.dataLayer.push({'bookTitle':books[0][1],'bookPrice':books[0][0], 'event': 'addToCart'})"
                     >
                         ADD TO CART
                     </button>
@@ -83,16 +96,10 @@
                 <img class="shop-item-image" src="/img/hpatps.jpg" />
                 <div class="shop-item-details">
                     <span class="shop-item-price">$4.25</span>
-                    <!-- <button
-                        class="btn btn-primary shop-item-button"
-                        type="button"
-                        onclick="window.dataLayer.push({'bookTitle':'Harry Potter - JK Rowling','bookPrice':4.25})"
-                    >
-                        ADD TO CART
-                    </button> -->
                     <button
                         class="btn btn-primary shop-item-button"
                         type="button"
+                        onclick="window.dataLayer.push({'bookTitle':books[1][1],'bookPrice':books[1][0], 'event': 'addToCart'})"
                     >
                         ADD TO CART
                     </button>
@@ -100,21 +107,15 @@
             </div>
             <div class="shop-item">
                 <span class="shop-item-title"
-                    >Gone with the wind - Margaret Mitchell</span
-                >
+                    >Gone with the wind - Margaret Mitchell
+                </span>
                 <img class="shop-item-image" src="/img/gwtw.jpg" />
                 <div class="shop-item-details">
                     <span class="shop-item-price">$39.99</span>
-                    <!-- <button
-                        class="btn btn-primary shop-item-button"
-                        type="button"
-                        onclick="window.dataLayer.push({'bookTitle':'Gone with the wind - Margaret Mitchell','bookPrice':39.99})"
-                    >
-                        ADD TO CART
-                    </button> -->
                     <button
                         class="btn btn-primary shop-item-button"
                         type="button"
+                        onclick="window.dataLayer.push({'bookTitle':books[2][1],'bookPrice':books[2][0], 'event': 'addToCart'})"
                     >
                         ADD TO CART
                     </button>
@@ -127,16 +128,10 @@
                 <img class="shop-item-image" src="/img/danielx.jpg" />
                 <div class="shop-item-details">
                     <span class="shop-item-price">$13.99</span>
-                    <!-- <button
-                        class="btn btn-primary shop-item-button"
-                        type="button"
-                        onclick="window.dataLayer.push({'bookTitle':'Daniel X - James Patterson','bookPrice':13.99})"
-                    >
-                        ADD TO CART
-                    </button> -->
                     <button
                         class="btn btn-primary shop-item-button"
                         type="button"
+                        onclick="window.dataLayer.push({'bookTitle':books[3][1],'bookPrice':books[3][0], 'event': 'addToCart'})"
                     >
                         ADD TO CART
                     </button>
@@ -147,16 +142,10 @@
                 <img class="shop-item-image" src="/img/deathlyhallows.jpg" />
                 <div class="shop-item-details">
                     <span class="shop-item-price">$12.99</span>
-                    <!-- <button
-                        class="btn btn-primary shop-item-button"
-                        type="button"
-                        onclick="window.dataLayer.push({'bookTitle':'Harry Potter 7 - JK Rowling','bookPrice':12.99})"
-                    >
-                        ADD TO CART
-                    </button> -->
                     <button
                         class="btn btn-primary shop-item-button"
                         type="button"
+                        onclick="window.dataLayer.push({'bookTitle':books[4][1],'bookPrice':books[4][0], 'event': 'addToCart'})"
                     >
                         ADD TO CART
                     </button>
@@ -169,16 +158,10 @@
                 <img class="shop-item-image" src="/img/atwn.jpg" />
                 <div class="shop-item-details">
                     <span class="shop-item-price">$18.99</span>
-                    <!-- <button
-                        class="btn btn-primary shop-item-button"
-                        type="button"
-                        onclick="window.dataLayer.push({'bookTitle':'And Then There Were None - Agatha Christie','bookPrice':18.99})"
-                    >
-                        ADD TO CART
-                    </button> -->
                     <button
                         class="btn btn-primary shop-item-button"
                         type="button"
+                        onclick="window.dataLayer.push({'bookTitle':books[5][1],'bookPrice':books[5][0], 'event': 'addToCart'})"
                     >
                         ADD TO CART
                     </button>
