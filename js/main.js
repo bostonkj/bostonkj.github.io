@@ -5,6 +5,7 @@ if (document.readyState == "loading") {
 }
 
 function ready() {
+    // Initializing document with Event listeners and stuff
     var removeCartItemButtons = document.getElementsByClassName("btn-danger");
     for (var i = 0; i < removeCartItemButtons.length; i++) {
         var button = removeCartItemButtons[i];
@@ -57,7 +58,9 @@ function quantityChanged(event) {
     updateCartTotal();
 }
 
-// Refactor to be on index.html
+/*
+ * Similar, this could move to HTML, but I've got DLV info being passed via the buttons
+ */
 function addToCartClicked(event) {
     var button = event.target;
     var shopItem = button.parentElement.parentElement;
@@ -65,15 +68,17 @@ function addToCartClicked(event) {
     var price = shopItem.getElementsByClassName("shop-item-price")[0].innerText;
     var imageSrc = shopItem.getElementsByClassName("shop-item-image")[0].src;
 
-    // pushing to datalayer the purchase information
-    // pushing to the datalayer outside the HTML doesn't work super well
-    // INTERESTING: Pushing outside the HTML initializes a second datalayer which isn't recognized by GTM
-    // window.datalayer = window.datalayer || [];
-    // window.datalayer.push = {
-    //     bookTitle: title,
-    //     bookPrice: price,
-    //     event: "add_to_cart",
-    // };
+    /*
+     * pushing to datalayer the purchase information
+     * pushing to the datalayer outside the HTML doesn't work super well
+     * INTERESTING: Pushing outside the HTML initializes a second datalayer which isn't recognized by GTM
+     * window.datalayer = window.datalayer || [];
+     * window.datalayer.push = {
+     *     bookTitle: title,
+     *     bookPrice: price,
+     *     event: "add_to_cart",
+     * };
+     */
 
     addItemToCart(title, price, imageSrc);
     updateCartTotal();
@@ -120,8 +125,12 @@ function addItemToCart(title, price, imageSrc) {
             <input class="cart-quantity-input" type="number" value="1">
             <button class="btn btn-danger" type="button">REMOVE</button>
         </div>`;
+
+    // Adding cart row object to the page
     cartRow.innerHTML = cartRowContents;
     cartItemContainer.append(cartRow);
+
+    // Event listeners so cart buttons will function
     cartRow
         .getElementsByClassName("btn-danger")[0]
         .addEventListener("click", removeCartItem);
@@ -130,20 +139,31 @@ function addItemToCart(title, price, imageSrc) {
         .addEventListener("change", quantityChanged);
 }
 
+// Updates the total shown at the bottom right
 function updateCartTotal() {
+    // Grab cart container
     var cartItemContainer = document.getElementsByClassName("cart-items")[0];
+    // Grab items from cart container
     var cartItems = cartItemContainer.getElementsByClassName("cart-row");
     var total = 0;
+    // Loop over the items in the cart
     for (var i = 0; i < cartItems.length; i++) {
+        // Object for the row we're iterating on
         var cartRow = cartItems[i];
+        // HTML objects:
+        // priceElement - price of the item
+        // quantityElement - quantity in cart
         var priceElement = cartRow.getElementsByClassName("cart-price")[0];
         var quantityElement = cartRow.getElementsByClassName(
             "cart-quantity-input"
         )[0];
+
+        // Change HTML objects to usable data
         var price = parseFloat(priceElement.innerText.replace("$", ""));
         var quantity = quantityElement.value;
         total = total + price * quantity;
     }
+    // Update price shown at bottom right
     total = Math.round(total * 100) / 100;
     document.getElementsByClassName("cart-total-price")[0].innerText =
         "$" + total;
