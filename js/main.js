@@ -51,7 +51,7 @@ function quantityChanged(event) {
     updateCartTotal();
 }
 
-// Refactor to be on index.html - dlv should populate correctly
+// Refactor to be on index.html
 function addToCartClicked(event) {
     var button = event.target;
     var shopItem = button.parentElement.parentElement;
@@ -61,28 +61,47 @@ function addToCartClicked(event) {
 
     // pushing to datalayer the purchase information
     // pushing to the datalayer outside the HTML doesn't work super well
-    window.datalayer = window.datalayer || [];
-    window.datalayer.push = {
-        bookTitle: title,
-        bookPrice: price,
-        event: "add_to_cart",
-    };
+    // INTERESTING: Pushing outside the HTML initializes a second datalayer which isn't recognized by GTM
+    // window.datalayer = window.datalayer || [];
+    // window.datalayer.push = {
+    //     bookTitle: title,
+    //     bookPrice: price,
+    //     event: "add_to_cart",
+    // };
 
     addItemToCart(title, price, imageSrc);
     updateCartTotal();
 }
 
+// Updating this function to increment quantity on duplicate add to carts
 function addItemToCart(title, price, imageSrc) {
     var cartRow = document.createElement("div");
     cartRow.classList.add("cart-row");
-    var cartItems = document.getElementsByClassName("cart-items")[0];
-    var cartItemNames = cartItems.getElementsByClassName("cart-item-title");
+
+    // Grabbing the cart from the page
+    var cartItemContainer = document.getElementsByClassName("cart-items")[0];
+    var cartItems = cartItemContainer.getElementsByClassName("cart-row");
+
+    // Grabbing the names so the for loop is neater
+    var cartItemNames =
+        cartItemContainer.getElementsByClassName("cart-item-title");
+
+    // Looping through the items to see if we're adding an item again
     for (var i = 0; i < cartItemNames.length; i++) {
+        // If we're adding a duplicate, this will run
         if (cartItemNames[i].innerText == title) {
-            alert("This item is already added to the cart");
+            // grabbing the specific item from the cart
+            var inCart = cartItems[i].getElementsByClassName(
+                "cart-quantity-input"
+            );
+
+            // Incrementing the value in the cart by 1 (bc one click = 1 add)
+            inCart[0].valueAsNumber += 1;
             return;
         }
     }
+
+    // Creating the cart row object for new items
     var cartRowContents = `
         <div class="cart-item cart-column">
             <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
@@ -94,7 +113,7 @@ function addItemToCart(title, price, imageSrc) {
             <button class="btn btn-danger" type="button">REMOVE</button>
         </div>`;
     cartRow.innerHTML = cartRowContents;
-    cartItems.append(cartRow);
+    cartItemContainer.append(cartRow);
     cartRow
         .getElementsByClassName("btn-danger")[0]
         .addEventListener("click", removeCartItem);
