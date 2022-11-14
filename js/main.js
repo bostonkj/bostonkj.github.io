@@ -28,6 +28,12 @@ function ready() {
         .addEventListener("click", purchaseClicked);
 }
 
+/*
+ * This **could** move to HTML
+ * OR
+ * I can implement the Data Layer to grab the information from the array
+ * and push that on the button click as well - less refactoring
+ */
 function purchaseClicked() {
     alert("Thank you for your purchase");
     var cartItems = document.getElementsByClassName("cart-items")[0];
@@ -73,13 +79,15 @@ function addToCartClicked(event) {
     updateCartTotal();
 }
 
-// Updating this function to increment quantity on duplicate add to carts
+// If duplicate items are added to cart, this will increment instead of throwing an alert
 function addItemToCart(title, price, imageSrc) {
     var cartRow = document.createElement("div");
     cartRow.classList.add("cart-row");
 
     // Grabbing the cart from the page
     var cartItemContainer = document.getElementsByClassName("cart-items")[0];
+
+    // Grabbing the array of Cart Items from the cart container
     var cartItems = cartItemContainer.getElementsByClassName("cart-row");
 
     // Grabbing the names so the for loop is neater
