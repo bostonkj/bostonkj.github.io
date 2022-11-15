@@ -169,7 +169,7 @@ function updateCartTotal() {
         "$" + total;
 }
 
-function returnCartTotal() {
+function getCartTotal() {
     var cartItemContainer = document.getElementsByClassName("cart-items")[0];
     // Grab items from cart container
     var cartItems = cartItemContainer.getElementsByClassName("cart-row");
@@ -193,4 +193,33 @@ function returnCartTotal() {
     }
 
     return total;
+}
+
+function getCartItems() {
+    var cartItemContainer = document.getElementsByClassName("cart-items")[0];
+    // Grab items from cart container
+    var cartItems = cartItemContainer.getElementsByClassName("cart-row");
+    var cart = [];
+    // Loop over the items in the cart
+    for (var i = 0; i < cartItems.length; i++) {
+        // Object for the row we're iterating on
+        var cartRow = cartItems[i];
+        // HTML objects:
+        // priceElement - price of the item
+        // quantityElement - quantity in cart
+        // nameElement - name of item
+        var priceElement = cartRow.getElementsByClassName("cart-price")[0];
+        var nameElement = cartRow.getElementsByClassName("cart-item-title");
+        var quantityElement = cartRow.getElementsByClassName(
+            "cart-quantity-input"
+        )[0];
+
+        // Change HTML objects to usable data
+        var price = parseFloat(priceElement.innerText.replace("$", ""));
+        var quantity = quantityElement.value;
+
+        cart.push({ name: nameElement, price: price, quantity: quantity });
+    }
+
+    return cart;
 }

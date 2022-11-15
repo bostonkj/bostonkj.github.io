@@ -58,64 +58,6 @@
         <!--Book Series One-->
         <h2 class="section-header">BOOKS</h2>
         <div class="shop-items">
-            <script>
-                // array of booktitle and bookprice values
-                var books = [];
-                books.push({
-                    price: 24.99,
-                    name: "Cross - James Patterson",
-                    id: 0001,
-                });
-                books.push({
-                    price: 4.25,
-                    name: "Harry Potter and the Sorceror's Stone - JK Rowling",
-                    id: 0002,
-                });
-                books.push({
-                    price: 39.99,
-                    name: "Gone With The Wind - Margaret Mitchell",
-                    id: 0003,
-                });
-                books.push({
-                    price: 13.99,
-                    name: "Daniel X - James Patterson",
-                    id: 0004,
-                });
-                books.push({
-                    price: 12.99,
-                    name: "Harry Potter and the Deathly Hallows - JK Rowling",
-                    id: 0005,
-                });
-                books.push({
-                    price: 18.99,
-                    name: "And Then There Were None - Agatha Christie",
-                    id: 0006,
-                });
-
-                function dlvPushAddToCart(listID) {
-                    window.dataLayer.push({
-                        ecommerce: {
-                            currencyCode: "USD",
-                            impressions: [
-                                {
-                                    name: books[listID].name,
-                                    id: books[listID].id,
-                                    price: books[listID].price,
-                                },
-                            ],
-                        },
-                        event: "addToCart",
-                    });
-                }
-
-                function dlvPushPurchase() {
-                    var total = returnCartTotal();
-                    window.dataLayer.push({
-                        revenue: total,
-                        event: "purchase",
-                    });
-                }
-            </script>
             <div class="shop-item">
                 <span class="shop-item-title">Cross - James Patterson</span>
                 <img class="shop-item-image" src="/img/cross.jpg" />
@@ -232,4 +174,80 @@
     </section>
 </body>
 
-<script></script>
+<script>
+    // array of booktitle and bookprice values
+    var books = [];
+    books.push({
+        price: 24.99,
+        name: "Cross - James Patterson",
+        id: 0001,
+    });
+    books.push({
+        price: 4.25,
+        name: "Harry Potter and the Sorceror's Stone - JK Rowling",
+        id: 0002,
+    });
+    books.push({
+        price: 39.99,
+        name: "Gone With The Wind - Margaret Mitchell",
+        id: 0003,
+    });
+    books.push({
+        price: 13.99,
+        name: "Daniel X - James Patterson",
+        id: 0004,
+    });
+    books.push({
+        price: 12.99,
+        name: "Harry Potter and the Deathly Hallows - JK Rowling",
+        id: 0005,
+    });
+    books.push({
+        price: 18.99,
+        name: "And Then There Were None - Agatha Christie",
+        id: 0006,
+    });
+
+    function getBookID(name) {
+        for (var i = 0; i < books.length(); i++) {
+            if (name == books[i].name) {
+                return books[i].id;
+            }
+        }
+    }
+
+    function dlvPushAddToCart(listID) {
+        window.dataLayer.push({
+            ecommerce: {
+                currencyCode: "USD",
+                add: [
+                    {
+                        name: books[listID].name,
+                        id: books[listID].id,
+                        price: books[listID].price,
+                    },
+                ],
+            },
+            event: "addToCart",
+        });
+    }
+    function dlvPushPurchase() {
+        var total = getCartTotal();
+        var cart = getCartItems();
+
+        // Emptying the ecommerce layer
+        window.dataLayer.push({ ecommerce: null });
+
+        // adding the cart items
+        window.dataLayer.push({
+            ecommerce: {
+                purchase: {
+                    id: Math.floor(Math.random() * 90000) + 10000,
+                    revenue: total,
+                },
+                products: {},
+            },
+            event: "purchase",
+        });
+    }
+</script>
