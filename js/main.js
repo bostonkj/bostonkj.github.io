@@ -168,3 +168,29 @@ function updateCartTotal() {
     document.getElementsByClassName("cart-total-price")[0].innerText =
         "$" + total;
 }
+
+function returnCartTotal() {
+    var cartItemContainer = document.getElementsByClassName("cart-items")[0];
+    // Grab items from cart container
+    var cartItems = cartItemContainer.getElementsByClassName("cart-row");
+    var total = 0;
+    // Loop over the items in the cart
+    for (var i = 0; i < cartItems.length; i++) {
+        // Object for the row we're iterating on
+        var cartRow = cartItems[i];
+        // HTML objects:
+        // priceElement - price of the item
+        // quantityElement - quantity in cart
+        var priceElement = cartRow.getElementsByClassName("cart-price")[0];
+        var quantityElement = cartRow.getElementsByClassName(
+            "cart-quantity-input"
+        )[0];
+
+        // Change HTML objects to usable data
+        var price = parseFloat(priceElement.innerText.replace("$", ""));
+        var quantity = quantityElement.value;
+        total = total + price * quantity;
+    }
+
+    return total;
+}

@@ -61,21 +61,60 @@
             <script>
                 // array of booktitle and bookprice values
                 var books = [];
-                books.push([24.99, "Cross - James Patterson"]);
-                books.push([
-                    4.25,
-                    "Harry Potter and the Sorceror's Stone - JK Rowling",
-                ]);
-                books.push([39.99, "Gone With The Wind - Margaret Mitchell"]);
-                books.push([13.99, "Daniel X - James Patterson"]);
-                books.push([
-                    12.99,
-                    "Harry Potter and the Deathly Hallows - JK Rowling",
-                ]);
-                books.push([
-                    18.99,
-                    "And Then There Were None - Agatha Christie",
-                ]);
+                books.push({
+                    price: 24.99,
+                    name: "Cross - James Patterson",
+                    id: 0001,
+                });
+                books.push({
+                    price: 4.25,
+                    name: "Harry Potter and the Sorceror's Stone - JK Rowling",
+                    id: 0002,
+                });
+                books.push({
+                    price: 39.99,
+                    name: "Gone With The Wind - Margaret Mitchell",
+                    id: 0003,
+                });
+                books.push({
+                    price: 13.99,
+                    name: "Daniel X - James Patterson",
+                    id: 0004,
+                });
+                books.push({
+                    price: 12.99,
+                    name: "Harry Potter and the Deathly Hallows - JK Rowling",
+                    id: 0005,
+                });
+                books.push({
+                    price: 18.99,
+                    name: "And Then There Were None - Agatha Christie",
+                    id: 0006,
+                });
+
+                function dlvPushAddToCart(listID) {
+                    window.dataLayer.push({
+                        ecommerce: {
+                            currencyCode: "USD",
+                            impressions: [
+                                {
+                                    name: books[listID].name,
+                                    id: books[listID].id,
+                                    price: books[listID].price,
+                                },
+                            ],
+                        },
+                        event: "addToCart",
+                    });
+                }
+
+                function dlvPushPurchase() {
+                    var total = returnCartTotal();
+                    window.dataLayer.push({
+                        revenue: total,
+                        event: "purchase",
+                    });
+                }
             </script>
             <div class="shop-item">
                 <span class="shop-item-title">Cross - James Patterson</span>
@@ -85,7 +124,7 @@
                     <button
                         class="btn btn-primary shop-item-button"
                         type="button"
-                        onclick="window.dataLayer.push({'bookTitle':books[0][1],'bookPrice':books[0][0], 'event': 'addToCart'})"
+                        onclick="dlvPushAddToCart(0)"
                     >
                         ADD TO CART
                     </button>
@@ -99,7 +138,7 @@
                     <button
                         class="btn btn-primary shop-item-button"
                         type="button"
-                        onclick="window.dataLayer.push({'bookTitle':books[1][1],'bookPrice':books[1][0], 'event': 'addToCart'})"
+                        onclick="dlvPushAddToCart(1)"
                     >
                         ADD TO CART
                     </button>
@@ -115,7 +154,7 @@
                     <button
                         class="btn btn-primary shop-item-button"
                         type="button"
-                        onclick="window.dataLayer.push({'bookTitle':books[2][1],'bookPrice':books[2][0], 'event': 'addToCart'})"
+                        onclick="dlvPushAddToCart(2)"
                     >
                         ADD TO CART
                     </button>
@@ -131,7 +170,7 @@
                     <button
                         class="btn btn-primary shop-item-button"
                         type="button"
-                        onclick="window.dataLayer.push({'bookTitle':books[3][1],'bookPrice':books[3][0], 'event': 'addToCart'})"
+                        onclick="dlvPushAddToCart(3)"
                     >
                         ADD TO CART
                     </button>
@@ -145,7 +184,7 @@
                     <button
                         class="btn btn-primary shop-item-button"
                         type="button"
-                        onclick="window.dataLayer.push({'bookTitle':books[4][1],'bookPrice':books[4][0], 'event': 'addToCart'})"
+                        onclick="dlvPushAddToCart(4)"
                     >
                         ADD TO CART
                     </button>
@@ -161,7 +200,7 @@
                     <button
                         class="btn btn-primary shop-item-button"
                         type="button"
-                        onclick="window.dataLayer.push({'bookTitle':books[5][1],'bookPrice':books[5][0], 'event': 'addToCart'})"
+                        onclick="dlvPushAddToCart(5)"
                     >
                         ADD TO CART
                     </button>
@@ -183,7 +222,11 @@
             <strong class="cart-total-title">Total</strong>
             <span class="cart-total-price">$0</span>
         </div>
-        <button class="btn btn-primary btn-purchase" type="button">
+        <button
+            class="btn btn-primary btn-purchase"
+            type="button"
+            onclick="dlvPushPurchase()"
+        >
             PURCHASE
         </button>
     </section>
