@@ -29,12 +29,8 @@ function ready() {
         .addEventListener("click", purchaseClicked);
 }
 
-/*
- * This **could** move to HTML
- * OR
- * I can implement the Data Layer to grab the information from the array
- * and push that on the button click as well - less refactoring
- */
+// This function runs to process the purchase
+// The function "dlvPushPurchase" handles the datalayer and tag firing
 function purchaseClicked() {
     alert("Thank you for your purchase");
     var cartItems = document.getElementsByClassName("cart-items")[0];
@@ -58,9 +54,8 @@ function quantityChanged(event) {
     updateCartTotal();
 }
 
-/*
- * Similar, this could move to HTML, but I've got DLV info being passed via the buttons
- */
+// This function runs to process the "add to cart" event
+// The function "dlvPushAddToCart" handles the datalayer info and tag firing
 function addToCartClicked(event) {
     var button = event.target;
     var shopItem = button.parentElement.parentElement;
@@ -78,6 +73,7 @@ function addToCartClicked(event) {
      *     bookPrice: price,
      *     event: "add_to_cart",
      * };
+     * Actual relic comment ^
      */
 
     addItemToCart(title, price, imageSrc);
