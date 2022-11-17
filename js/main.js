@@ -146,9 +146,11 @@ function updateCartTotal() {
     for (var i = 0; i < cartItems.length; i++) {
         // Object for the row we're iterating on
         var cartRow = cartItems[i];
-        // HTML objects:
-        // priceElement - price of the item
-        // quantityElement - quantity in cart
+        /*
+         * HTML objects:
+         * priceElement - price of the item
+         * quantityElement - quantity in cart
+         */
         var priceElement = cartRow.getElementsByClassName("cart-price")[0];
         var quantityElement = cartRow.getElementsByClassName(
             "cart-quantity-input"
@@ -174,9 +176,11 @@ function getCartTotal() {
     for (var i = 0; i < cartItems.length; i++) {
         // Object for the row we're iterating on
         var cartRow = cartItems[i];
-        // HTML objects:
-        // priceElement - price of the item
-        // quantityElement - quantity in cart
+        /*
+         * HTML objects:
+         * priceElement - price of the item
+         * quantityElement - quantity in cart
+         */
         var priceElement = cartRow.getElementsByClassName("cart-price")[0];
         var quantityElement = cartRow.getElementsByClassName(
             "cart-quantity-input"
@@ -200,10 +204,12 @@ function getCartItems() {
     for (var i = 0; i < cartItems.length; i++) {
         // Object for the row we're iterating on
         var cartRow = cartItems[i];
-        // HTML objects:
-        // priceElement - price of the item
-        // quantityElement - quantity in cart
-        // nameElement - name of item
+        /*
+         * HTML objects:
+         * priceElement - price of the item
+         * quantityElement - quantity in cart
+         * nameElement - name of item
+         */
         var priceElement = cartRow.getElementsByClassName("cart-price")[0];
         var nameElement = cartRow.getElementsByClassName("cart-item-title");
         var quantityElement = cartRow.getElementsByClassName(
