@@ -32,12 +32,12 @@ function ready() {
 // This function runs to process the purchase
 // The function "dlvPushPurchase" handles the datalayer and tag firing
 function purchaseClicked() {
-    alert("Thank you for your purchase");
     var cartItems = document.getElementsByClassName("cart-items")[0];
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild);
     }
     updateCartTotal();
+    window.location.href = "/html/purchase.html";
 }
 
 function removeCartItem(event) {
