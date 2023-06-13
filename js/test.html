@@ -1,0 +1,60 @@
+<script>
+    setInterval(() => {
+        // Checking we don't have the banner currently on the page
+        if ($("#PlanDetails").length > 0 && $(".addInfo-banner").length < 1) {
+
+            // Grabbing the plan card to set the banner accordingly
+            var planCard = document.querySelector(".uhc-card").parentNode;
+
+            // Checking the screen width to see where to put the banner
+            if (window.screen.width > 768) {
+                // Creating the banner for the web view
+                var banner =
+                    `<div class="column column-12">
+                    <div class="column column-12">
+                        <div class="addInfo-banner d-flex justify-content-between bg-gray-1 px-30 px-lg-50 py-lg-30 py-20 bg-teal-quaternary brd-teal-secondary">
+                            <div class="text-lg-normal">
+                        <span class="d-lg-block text-lg-normal bannerText text-bold mb-lg-1">Premium shown below is the lowest available. </span>
+                        <span class="d-lg-block text-lg-normal bannerText">We need a little more information to show your estimated premium.</span>
+                            </div>
+                            <div class="mt-10">
+                                <a class="text-small compare-plans-button add-or-edit-information font-weight-bold" tabindex="0" dtmid="cta_acq_ms_vpp" dtmname="MS:VPP:Add your information">
+                                    <img src="data:image/png;base64,
+                                        iVBORw0KGgoAAAANSUhEUgAAADIAAAAwBAMAAACh2TSJAAAD8WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDggNzkuMTY0MDUwLCAyMDE5LzEwLzAxLTE4OjAzOjE2ICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6ZGFtPSJodHRwOi8vd3d3LmRheS5jb20vZGFtLzEuMCIKICAgIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIgogICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICBkYW06UGh5c2ljYWxoZWlnaHRpbmluY2hlcz0iLTEuMCIKICAgZGFtOlBoeXNpY2Fsd2lkdGhpbmluY2hlcz0iLTEuMCIKICAgZGFtOkZpbGVmb3JtYXQ9IlBORyIKICAgZGFtOlByb2dyZXNzaXZlPSJubyIKICAgZGFtOmV4dHJhY3RlZD0iMjAyMi0wOC0wMVQwMTo0Mzo0Mi44NTMtMDU6MDAiCiAgIGRhbTpCaXRzcGVycGl4ZWw9IjQiCiAgIGRhbTpNSU1FdHlwZT0iaW1hZ2UvcG5nIgogICBkYW06UGh5c2ljYWx3aWR0aGluZHBpPSItMSIKICAgZGFtOlBoeXNpY2FsaGVpZ2h0aW5kcGk9Ii0xIgogICBkYW06TnVtYmVyb2ZpbWFnZXM9IjEiCiAgIGRhbTpOdW1iZXJvZnRleHR1YWxjb21tZW50cz0iMCIKICAgZGFtOnNoYTE9ImQwY2I2MGYwMWExMDViZGNkYTg4ZmJiYjljOGJlZGRhMzBmODliNmYiCiAgIGRhbTpzaXplPSIyMTYiCiAgIHRpZmY6SW1hZ2VMZW5ndGg9IjQ4IgogICB0aWZmOkltYWdlV2lkdGg9IjUwIgogICBkYzpmb3JtYXQ9ImltYWdlL3BuZyIKICAgZGM6bW9kaWZpZWQ9IjIwMjItMDgtMDFUMDE6NDM6NDUuODQzLTA1OjAwIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+Z5lptwAAAARnQU1BAACxjwv8YQUAAAABc1JHQgCuzhzpAAAAGFBMVEVHcEwZb9Aid90cctIabtAab9AZbs8Zbs+jowgiAAAAB3RSTlMA8g8epbSrIbZrYAAAAEtJREFUOMtjYBjcgNmxHAWIGcBkDMvRgDBMxh1dphQmI44uUwiTKccACjSVQbhl6MsgYkucpjLDLdzokd5wp3jcuQR3zsKdGwcrAADmFAKoYkz0OQAAAABJRU5ErkJggg=="
+                                    class="d-inline-block mr-5 addboxImg" />Add your information
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+
+                // Setting the banner above the plan card and pushing the plan card down a bit
+                $(banner).insertBefore(planCard);
+                document.querySelector(".addInfo-banner").parentNode.style.paddingBottom = "1.5em";
+            } else {
+                // Creating the banner for mobile view
+                var banner =
+                    `<div class="addInfo-banner justify-content-between bg-gray-1 px-30 px-lg-50 py-lg-30 py-20 bg-teal-quaternary brd-teal-secondary">
+                    <div class="text-lg-normal">
+                        <span class="d-lg-block text-lg-normal bannerText text-bold mb-lg-1">Premium shown below is the lowest available.</span>
+                        <span class="d-lg-block text-lg-normal bannerText">We need a little more information to show your estimated premium.</span>
+                    </div>
+                    <div class="mt-10">
+                        <a class="text-small compare-plans-button add-or-edit-information font-weight-bold" tabindex="0" dtmid="cta_acq_ms_vpp" dtmname="MS:VPP:Add your information">
+                            <img src="data:image/png;base64,
+                                iVBORw0KGgoAAAANSUhEUgAAADIAAAAwBAMAAACh2TSJAAAD8WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDggNzkuMTY0MDUwLCAyMDE5LzEwLzAxLTE4OjAzOjE2ICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6ZGFtPSJodHRwOi8vd3d3LmRheS5jb20vZGFtLzEuMCIKICAgIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIgogICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICBkYW06UGh5c2ljYWxoZWlnaHRpbmluY2hlcz0iLTEuMCIKICAgZGFtOlBoeXNpY2Fsd2lkdGhpbmluY2hlcz0iLTEuMCIKICAgZGFtOkZpbGVmb3JtYXQ9IlBORyIKICAgZGFtOlByb2dyZXNzaXZlPSJubyIKICAgZGFtOmV4dHJhY3RlZD0iMjAyMi0wOC0wMVQwMTo0Mzo0Mi44NTMtMDU6MDAiCiAgIGRhbTpCaXRzcGVycGl4ZWw9IjQiCiAgIGRhbTpNSU1FdHlwZT0iaW1hZ2UvcG5nIgogICBkYW06UGh5c2ljYWx3aWR0aGluZHBpPSItMSIKICAgZGFtOlBoeXNpY2FsaGVpZ2h0aW5kcGk9Ii0xIgogICBkYW06TnVtYmVyb2ZpbWFnZXM9IjEiCiAgIGRhbTpOdW1iZXJvZnRleHR1YWxjb21tZW50cz0iMCIKICAgZGFtOnNoYTE9ImQwY2I2MGYwMWExMDViZGNkYTg4ZmJiYjljOGJlZGRhMzBmODliNmYiCiAgIGRhbTpzaXplPSIyMTYiCiAgIHRpZmY6SW1hZ2VMZW5ndGg9IjQ4IgogICB0aWZmOkltYWdlV2lkdGg9IjUwIgogICBkYzpmb3JtYXQ9ImltYWdlL3BuZyIKICAgZGM6bW9kaWZpZWQ9IjIwMjItMDgtMDFUMDE6NDM6NDUuODQzLTA1OjAwIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+Z5lptwAAAARnQU1BAACxjwv8YQUAAAABc1JHQgCuzhzpAAAAGFBMVEVHcEwZb9Aid90cctIabtAab9AZbs8Zbs+jowgiAAAAB3RSTlMA8g8epbSrIbZrYAAAAEtJREFUOMtjYBjcgNmxHAWIGcBkDMvRgDBMxh1dphQmI44uUwiTKccACjSVQbhl6MsgYkucpjLDLdzokd5wp3jcuQR3zsKdGwcrAADmFAKoYkz0OQAAAABJRU5ErkJggg=="
+                            class="d-inline-block mr-5 addboxImg" />Add your information
+                        </a>
+                    </div>
+                </div>`;
+                // Setting the banner below the plan card and pushing the banner down a bit
+                $(banner).insertAfter(planCard);
+                document.querySelector(".addInfo-banner").style.paddingTop = "1.5em";
+            }
+        }
+
+        // Removing the banner information from the plan card
+        document.querySelector(".add-your-info").style.display = "none";
+        document.querySelector(".plan-info-text").style.display = "none";
+    }, 200);
+</script>

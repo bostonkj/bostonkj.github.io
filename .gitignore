@@ -1,5 +1,5 @@
 .vs
 launch.json
-js/test.js
+js-test-items/*
 temp.html
 .prettierrc
