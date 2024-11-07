@@ -1,0 +1,5 @@
+.vs
+launch.json
+js-test-items/*
+temp.html
+.prettierrc
