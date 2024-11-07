@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<head>
+    <title>{{book title}}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/main.js" async></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-N32V3TX");
+    </script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N32V3TX" height="0" width="0"
+            style="display: none; visibility: hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W88LHLNFRD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-W88LHLNFRD");
+    </script>
+    <!-- End of Body Scripts-->
+
+    <!--Books Section-->
+    <section class="container content-section">
+        <!--Book Series One-->
+        <h2 class="section-header">BOOKS</h2>
+        <div class="shop-items">
+            <div class="shop-item">
+                <span class="shop-item-title">Cross - James Patterson</span>
+                <img class="shop-item-image" src="/img/cross.jpg" />
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$24.99</span>
+                    <button class="btn btn-primary shop-item-button" type="button" onclick="dlvPushAddToCart(0)">
+                        ADD TO CART
+                    </button>
+                </div>
+            </div>
+            <!--RIP relic comment lines, i overzealously deleted them-->
+            <div class="shop-item">
+                <span class="shop-item-title">Harry Potter - JK Rowling</span>
+                <img class="shop-item-image" src="/img/hpatps.jpg" />
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$4.25</span>
+                    <button class="btn btn-primary shop-item-button" type="button" onclick="dlvPushAddToCart(1)">
+                        ADD TO CART
+                    </button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Gone with the wind - Margaret Mitchell
+                </span>
+                <img class="shop-item-image" src="/img/gwtw.jpg" />
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$39.99</span>
+                    <button class="btn btn-primary shop-item-button" type="button" onclick="dlvPushAddToCart(2)">
+                        ADD TO CART
+                    </button>
+                </div>
+            </div>
+
+            <!--Book Series Two-->
+            <div class="shop-item">
+                <span class="shop-item-title">Daniel X - James Patterson</span>
+                <img class="shop-item-image" src="/img/danielx.jpg" />
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$13.99</span>
+                    <button class="btn btn-primary shop-item-button" type="button" onclick="dlvPushAddToCart(3)">
+                        ADD TO CART
+                    </button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Harry Potter 7 - JK Rowling</span>
+                <img class="shop-item-image" src="/img/deathlyhallows.jpg" />
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$12.99</span>
+                    <button class="btn btn-primary shop-item-button" type="button" onclick="dlvPushAddToCart(4)">
+                        ADD TO CART
+                    </button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">And Then There Were None - Agatha Christie</span>
+                <img class="shop-item-image" src="/img/atwn.jpg" />
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$18.99</span>
+                    <button class="btn btn-primary shop-item-button" type="button" onclick="dlvPushAddToCart(5)">
+                        ADD TO CART
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Cart section-->
+    <section class="container content-section">
+        <h2 class="section-header">CART</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">ITEM</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$0</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button" onclick="dlvPushPurchase()">
+            PURCHASE
+        </button>
+    </section>
+
+    <!--Form Section-->
+    <section class="container content-section">
+        <form action="html/thankyou.html">
+            <label for="fname">First name:</label><br />
+            <input type="text" id="fname" name="fname" /><br />
+            <label for="lname">Last name:</label><br />
+            <input type="text" id="lname" name="lname" />
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</body>
+
+<script>
+    /*
+     * Array of Book objects
+     * id: product ID for the book
+     * name: title of the book - author of the book
+     * price: price as listed on the site
+     */
+    var books = [];
+    books.push({
+        price: 24.99,
+        name: "Cross - James Patterson",
+        id: 0001,
+    });
+    books.push({
+        price: 4.25,
+        name: "Harry Potter and the Sorceror's Stone - JK Rowling",
+        id: 0002,
+    });
+    books.push({
+        price: 39.99,
+        name: "Gone With The Wind - Margaret Mitchell",
+        id: 0003,
+    });
+    books.push({
+        price: 13.99,
+        name: "Daniel X - James Patterson",
+        id: 0004,
+    });
+    books.push({
+        price: 12.99,
+        name: "Harry Potter and the Deathly Hallows - JK Rowling",
+        id: 0005,
+    });
+    books.push({
+        price: 18.99,
+        name: "And Then There Were None - Agatha Christie",
+        id: 0006,
+    });
+
+    /*
+     * Requires the Name of the book
+     * Uses the name of the book to get the ID
+     * Poor luck if I put two books with the same name on here
+     * Was previously used to fill the products in the dlvPushPurchase function
+     */
+    function getBookID(name) {
+        for (var i = 0; i < books.length(); i++) {
+            if (name == books[i].name) {
+                return books[i].id;
+            }
+        }
+    }
+
+    // this function runs with the add to cart function in main.js
+    // that processes the add to cart event, this processes the dlv and tag firing
+    function dlvPushAddToCart(listID) {
+        window.dataLayer.push({
+            ecommerce: {
+                currencyCode: "USD",
+                add: [
+                    {
+                        name: books[listID].name,
+                        id: books[listID].id,
+                        price: books[listID].price,
+                    },
+                ],
+            },
+            event: "addToCart",
+        });
+    }
+
+    // this function runs with the purchase function in main.js
+    // that processes the purchase, this processes the dlv and tag firing
+    function dlvPushPurchase() {
+        var total = getCartTotal();
+        var cart = getCartItems();
+
+        // Emptying the ecommerce layer
+        window.dataLayer.push({ ecommerce: null });
+
+        // adding the purchase information
+        window.dataLayer.push({
+            ecommerce: {
+                purchase: {
+                    id: Math.floor(Math.random() * 90000) + 10000,
+                    revenue: total,
+                },
+                products: {},
+            },
+            event: "purchase",
+        });
+    }
+</script>
