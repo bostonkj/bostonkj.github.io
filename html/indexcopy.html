@@ -1,92 +1,101 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>The Book Store</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="stylesheet" href="/css/style.css" />
 
-    <script>
-      window.dataLayer = window.dataLayer || [];
-    </script>
+<head>
+  <title>The Book Store</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="/css/style.css" />
 
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-N32V3TX");
-    </script>
-    <!-- End Google Tag Manager -->
-  </head>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+  </script>
 
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-N32V3TX"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-N32V3TX");
+  </script>
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-W88LHLNFRD"
-    ></script>
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KP3RBDBV');</script>
 
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-N4XHG8GQ');</script>
+  <!-- End Google Tag Manager -->
+</head>
 
-      gtag("config", "G-W88LHLNFRD");
-    </script>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N32V3TX" height="0" width="0"
+      style="display: none; visibility: hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-    <div>
-      <a
-        href="html/cross.html"
-        onclick="dataLayer.push({
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KP3RBDBV" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4XHG8GQ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W88LHLNFRD"></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-W88LHLNFRD");
+  </script>
+
+  <div>
+    <a href="html/cross.html" onclick="dataLayer.push({
         'bookCategory': 'fiction',
         'bookTitle': 'Cross',
         'bookAuthor': 'James Patterson'
-    });"
-        >Cross</a
-      >
-    </div>
+    });">Cross</a>
+  </div>
 
-    <div>
-      <a
-        href="html/harrypotter.html"
-        onclick="dataLayer.push({
+  <div>
+    <a href="html/harrypotter.html" onclick="dataLayer.push({
         'bookCategory': 'fiction',
         'bookTitle': 'Harry Potter and The Sorceror\'s Stone',
         'bookAuthor': 'Icky Rowling'
-    });"
-        >Harry Potter and the Sorcerors Stone</a
-      >
-    </div>
+    });">Harry Potter and the Sorcerors Stone</a>
+  </div>
 
-    <div>
-      <a
-        href="html/gonewiththewind.html"
-        onclick="dataLayer.push({
+  <div>
+    <a href="html/gonewiththewind.html" onclick="dataLayer.push({
         'bookCategory': 'novel',
         'bookTitle': 'Gone With the Wind',
         'bookAuthor': 'Margaret Mitchell'
-    });"
-        >Gone With the Wind</a
-      >
-    </div>
-  </body>
+    });">Gone With the Wind</a>
+  </div>
+</body>
+
 </html>
