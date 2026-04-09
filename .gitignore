@@ -2,4 +2,6 @@
 launch.json
 js-test-items/*
 temp.html
+temp.js
+temp.css
 .prettierrc
